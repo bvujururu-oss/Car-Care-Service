@@ -1,310 +1,1019 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>RPM Performance & Automotive Repair - Chegutu</title>
-    <style>
-        :root {
-            --dark-bg: #0b0c10;
-            --card-bg: #1f2833;
-            --racing-red: #dc2626;
-            --neon-green: #22c55e;
-            --pure-white: #ffffff;
-            --text-muted: #9ca3af;
-            --whatsapp-green: #25D366;
-        }
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
-        body {
-            background-color: var(--dark-bg);
-            color: var(--pure-white);
-            line-height: 1.6;
-            font-family: 'Segoe UI', Roboto, sans-serif;
-        }
-        header {
-            background-color: #000000;
-            padding: 1.5rem 2rem;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            border-bottom: 4px solid var(--racing-red);
-        }
-        .logo h1 {
-            font-size: 1.8rem;
-            letter-spacing: 1px;
-            color: var(--pure-white);
-            font-style: italic;
-            font-family: 'Impact', 'Arial Black', sans-serif;
-        }
-        .logo span {
-            color: var(--neon-green);
-        }
-        nav a {
-            color: var(--pure-white);
-            text-decoration: none;
-            margin-left: 1.5rem;
-            font-weight: bold;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-        nav a:hover {
-            color: var(--racing-red);
-        }
-        .hero {
-            background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.9)), url('https://unsplash.com') no-repeat center center/cover;
-            padding: 8rem 2rem;
-            text-align: center;
-            border-bottom: 4px solid var(--neon-green);
-        }
-        .hero h2 {
-            font-family: 'Impact', 'Arial Black', sans-serif;
-            font-size: 3.5rem;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            color: var(--pure-white);
-            margin-bottom: 1rem;
-        }
-        .hero h2 span {
-            color: var(--racing-red);
-        }
-        .hero p {
-            font-size: 1.2rem;
-            margin-bottom: 2rem;
-            max-width: 700px;
-            margin-left: auto;
-            margin-right: auto;
-            color: var(--text-muted);
-        }
-        .btn {
-            background-color: var(--neon-green);
-            color: #000;
-            padding: 0.85rem 2rem;
-            text-decoration: none;
-            font-weight: 900;
-            border-radius: 4px;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            display: inline-block;
-            transition: 0.3s;
-            border: none;
-            cursor: pointer;
-            font-family: 'Impact', 'Arial Black', sans-serif;
-        }
-        .btn:hover {
-            background-color: var(--racing-red);
-            color: var(--pure-white);
-        }
-        .container {
-            max-width: 1200px;
-            margin: auto;
-            padding: 4rem 2rem;
-        }
-        .section-title {
-            text-align: center;
-            font-family: 'Impact', 'Arial Black', sans-serif;
-            font-size: 2.5rem;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            margin-bottom: 3rem;
-            color: var(--pure-white);
-        }
-        .section-title span {
-            color: var(--racing-red);
-        }
-        .grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 2rem;
-        }
-        .card {
-            background: var(--card-bg);
-            border-radius: 6px;
-            overflow: hidden;
-            box-shadow: 0 8px 16px rgba(0,0,0,0.5);
-            border-bottom: 4px solid var(--racing-red);
-            transition: transform 0.3s;
-        }
-        .card:hover {
-            transform: translateY(-5px);
-            border-bottom-color: var(--neon-green);
-        }
-        .card-img {
-            width: 100%;
-            height: 200px;
-            object-fit: cover;
-            background-color: #222;
-        }
-        .card-content {
-            padding: 1.5rem;
-        }
-        .card h3 {
-            font-family: 'Impact', 'Arial Black', sans-serif;
-            font-size: 1.4rem;
-            letter-spacing: 1px;
-            margin-bottom: 0.5rem;
-            color: var(--neon-green);
-            text-transform: uppercase;
-        }
-        .card p {
-            color: #cbd5e1;
-            font-size: 0.95rem;
-        }
-        .pricing-section {
-            background-color: #111827;
-            padding: 4rem 2rem;
-            border-top: 4px solid var(--neon-green);
-            border-bottom: 4px solid var(--racing-red);
-        }
-        .table-container {
-            max-width: 900px;
-            margin: auto;
-            overflow-x: auto;
-        }
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            background: var(--card-bg);
-            border-radius: 6px;
-            overflow: hidden;
-        }
-        th, td {
-            padding: 1rem 1.5rem;
-            text-align: left;
-        }
-        th {
-            background-color: #000000;
-            color: var(--neon-green);
-            font-family: 'Impact', 'Arial Black', sans-serif;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            font-size: 1.2rem;
-        </tr>
-        tr {
-            border-bottom: 1px solid #374151;
-        }
-        td.price {
-            color: var(--racing-red);
-            font-weight: bold;
-            font-family: 'Impact', 'Arial Black', sans-serif;
-            font-size: 1.2rem;
-        }
-        .info-section {
-            background-color: #000000;
-            padding: 4rem 2rem;
-        }
-        .info-grid {
-            max-width: 1200px;
-            margin: auto;
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 3rem;
-        }
-        .info-box h3 {
-            font-family: 'Impact', 'Arial Black', sans-serif;
-            font-size: 1.8rem;
-            letter-spacing: 1px;
-            color: var(--racing-red);
-            margin-bottom: 1.5rem;
-            text-transform: uppercase;
-        }
-        .info-box p, .info-box li {
-            font-size: 1.1rem;
-            margin-bottom: 0.75rem;
-            color: #e5e7eb;
-        }
-        .info-box span {
-            color: var(--neon-green);
-            font-weight: bold;
-        }
-        .info-box ul {
-            list-style: none;
-        }
-        .contact-link {
-            color: var(--pure-white);
-            text-decoration: none;
-        }
-        .contact-link:hover {
-            color: var(--neon-green);
-        }
-        .booking-form {
-            display: flex;
-            flex-direction: column;
-            gap: 1rem;
-            background: var(--card-bg);
-            padding: 2rem;
-            border-radius: 6px;
-            border: 1px solid #374151;
-        }
-        .form-group {
-            display: flex;
-            flex-direction: column;
-            gap: 0.5rem;
-        }
-        .form-group label {
-            font-size: 0.9rem;
-            text-transform: uppercase;
-            color: var(--text-muted);
-            font-weight: bold;
-        }
-        .form-group input, .form-group textarea {
-            padding: 0.75rem;
-            background: #0b0c10;
-            border: 1px solid #4b5563;
-            color: white;
-            border-radius: 4px;
-            font-size: 1rem;
-        }
-        .form-group input:focus, .form-group textarea:focus {
-            outline: none;
-            border-color: var(--neon-green);
-        }
-        .whatsapp-float {
-            position: fixed;
-            width: 60px;
-            height: 60px;
-            bottom: 40px;
-            right: 40px;
-            background-color: var(--whatsapp-green);
-            color: #FFF;
-            border-radius: 50px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-decoration: none;
-            box-shadow: 2px 2px 10px rgba(0,0,0,0.5);
-            z-index: 100;
-            transition: transform 0.3s;
-        }
-        .whatsapp-float:hover {
-            transform: scale(1.1);
-        }
-        .whatsapp-icon {
-            width: 32px;
-            height: 32px;
-            fill: white;
-        }
-        footer {
-            background-color: #050505;
-            color: var(--text-muted);
-            text-align: center;
-            padding: 2rem;
-            font-size: 0.9rem;
-            border-top: 1px solid #1f2937;
-        }
-        @media (max-width: 768px) {
-            header { flex-direction: column; gap: 1rem; }
-            nav a { margin: 0 0.5rem; }
-            .hero h2 { font-size: 2.3rem; }
-            .whatsapp-float { bottom: 20px; right: 20px; width: 50px; height: 50px; }
-        }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Car Care Center | Professional Auto Repair & Vehicle Servicing</title>
+
+<meta name="description" content="Car Care Center offers professional vehicle repairs, diagnostics, engine repairs, suspension, brake service, oil changes and more.">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
+<style>
+
+:root{
+
+--primary:#d90429;
+--secondary:#22c55e;
+--dark:#0b0c10;
+--card:#1b1f27;
+--text:#ffffff;
+--grey:#b0b7c3;
+--shadow:0 15px 40px rgba(0,0,0,.35);
+
+}
+
+*{
+
+margin:0;
+padding:0;
+box-sizing:border-box;
+
+}
+
+html{
+
+scroll-behavior:smooth;
+
+}
+
+body{
+
+font-family:'Inter',sans-serif;
+background:linear-gradient(180deg,#0b0c10,#111827);
+color:white;
+line-height:1.7;
+
+}
+
+header{
+
+position:fixed;
+top:0;
+left:0;
+width:100%;
+z-index:999;
+background:rgba(0,0,0,.9);
+backdrop-filter:blur(10px);
+padding:18px 7%;
+
+display:flex;
+justify-content:space-between;
+align-items:center;
+
+border-bottom:3px solid var(--primary);
+
+}
+
+.logo{
+
+font-size:2rem;
+font-family:'Oswald',sans-serif;
+font-weight:700;
+letter-spacing:2px;
+
+}
+
+.logo span{
+
+color:var(--secondary);
+
+}
+
+nav{
+
+display:flex;
+gap:30px;
+
+}
+
+nav a{
+
+color:white;
+text-decoration:none;
+font-weight:600;
+transition:.3s;
+
+}
+
+nav a:hover{
+
+color:var(--secondary);
+
+}
+
+.hero{
+
+height:100vh;
+
+background:
+linear-gradient(rgba(0,0,0,.7),rgba(0,0,0,.8)),
+url("https://images.unsplash.com/photo-1487754180451-c456f719a1fc?auto=format&fit=crop&w=1600&q=80");
+
+background-size:cover;
+background-position:center;
+
+display:flex;
+justify-content:center;
+align-items:center;
+text-align:center;
+
+padding:30px;
+
+}
+
+.hero-content{
+
+max-width:850px;
+
+}
+
+.hero h1{
+
+font-family:'Oswald',sans-serif;
+font-size:4rem;
+margin-bottom:20px;
+text-transform:uppercase;
+
+}
+
+.hero span{
+
+color:var(--primary);
+
+}
+
+.hero p{
+
+font-size:1.2rem;
+margin-bottom:40px;
+color:#ddd;
+
+}
+
+.btn{
+
+display:inline-block;
+padding:15px 35px;
+
+background:var(--secondary);
+
+color:black;
+
+font-weight:bold;
+
+border-radius:50px;
+
+text-decoration:none;
+
+transition:.3s;
+
+}
+
+.btn:hover{
+
+background:var(--primary);
+
+color:white;
+
+transform:translateY(-4px);
+
+}
+
+section{
+
+padding:90px 7%;
+
+}
+
+.section-title{
+
+font-family:'Oswald',sans-serif;
+
+text-align:center;
+
+font-size:2.8rem;
+
+margin-bottom:60px;
+
+text-transform:uppercase;
+
+}
+
+.section-title span{
+
+color:var(--primary);
+
+}
+
+.services{
+
+display:grid;
+
+grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+
+gap:30px;
+
+}
+
+.service{
+
+background:var(--card);
+
+padding:35px;
+
+border-radius:15px;
+
+text-align:center;
+
+transition:.35s;
+
+box-shadow:var(--shadow);
+
+}
+
+.service:hover{
+
+transform:translateY(-10px);
+
+}
+
+.service i{
+
+font-size:55px;
+
+color:var(--secondary);
+
+margin-bottom:20px;
+
+}
+
+.service h3{
+
+font-family:'Oswald',sans-serif;
+
+margin-bottom:15px;
+
+}
+
+.service p{
+
+color:var(--grey);
+
+}/* ===========================
+   PRICING TABLE
+=========================== */
+
+.pricing{
+
+background:#10151d;
+
+}
+
+.price-table{
+
+width:100%;
+border-collapse:collapse;
+overflow:hidden;
+border-radius:12px;
+box-shadow:var(--shadow);
+
+}
+
+.price-table th{
+
+background:var(--primary);
+padding:18px;
+font-family:'Oswald',sans-serif;
+font-size:1.1rem;
+
+}
+
+.price-table td{
+
+padding:16px;
+border-bottom:1px solid #333;
+text-align:center;
+
+}
+
+.price-table tr:hover{
+
+background:#1d2430;
+
+}
+
+/* ===========================
+   GALLERY
+=========================== */
+
+.gallery{
+
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+gap:20px;
+
+}
+
+.gallery img{
+
+width:100%;
+height:250px;
+object-fit:cover;
+border-radius:12px;
+transition:.4s;
+cursor:pointer;
+
+}
+
+.gallery img:hover{
+
+transform:scale(1.05);
+
+}
+
+/* ===========================
+   TESTIMONIALS
+=========================== */
+
+.testimonials{
+
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
+gap:25px;
+
+}
+
+.testimonial{
+
+background:var(--card);
+padding:30px;
+border-radius:15px;
+box-shadow:var(--shadow);
+
+}
+
+.testimonial i{
+
+font-size:35px;
+color:gold;
+margin-bottom:15px;
+
+}
+
+.testimonial h4{
+
+margin-top:20px;
+color:var(--secondary);
+
+}
+
+/* ===========================
+   BOOKING FORM
+=========================== */
+
+.booking{
+
+background:#0e1117;
+
+}
+
+form{
+
+max-width:800px;
+margin:auto;
+display:grid;
+gap:20px;
+
+}
+
+input,
+select,
+textarea{
+
+width:100%;
+padding:15px;
+background:#1b1f27;
+border:1px solid #333;
+border-radius:8px;
+color:white;
+font-size:16px;
+
+}
+
+input:focus,
+select:focus,
+textarea:focus{
+
+outline:none;
+border-color:var(--secondary);
+
+}
+
+textarea{
+
+height:150px;
+resize:none;
+
+}
+
+button{
+
+background:var(--secondary);
+color:black;
+border:none;
+padding:16px;
+font-size:18px;
+font-weight:bold;
+cursor:pointer;
+border-radius:50px;
+transition:.3s;
+
+}
+
+button:hover{
+
+background:var(--primary);
+color:white;
+
+}
+
+/* ===========================
+   CONTACT
+=========================== */
+
+.contact{
+
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(350px,1fr));
+gap:40px;
+
+}
+
+.contact-box{
+
+background:var(--card);
+padding:30px;
+border-radius:15px;
+box-shadow:var(--shadow);
+
+}
+
+.contact-box h3{
+
+margin-bottom:20px;
+font-family:'Oswald',sans-serif;
+
+}
+
+.contact-box p{
+
+margin-bottom:12px;
+
+}
+
+.contact-box i{
+
+color:var(--secondary);
+margin-right:10px;
+
+}
+
+iframe{
+
+width:100%;
+height:350px;
+border:none;
+border-radius:15px;
+
+}
+
+/* ===========================
+   WHATSAPP BUTTON
+=========================== */
+
+.whatsapp{
+
+position:fixed;
+bottom:25px;
+right:25px;
+width:65px;
+height:65px;
+background:#25D366;
+border-radius:50%;
+display:flex;
+justify-content:center;
+align-items:center;
+font-size:32px;
+color:white;
+text-decoration:none;
+box-shadow:var(--shadow);
+z-index:999;
+
+}
+
+.whatsapp:hover{
+
+transform:scale(1.1);
+
+}
+
+/* ===========================
+   FOOTER
+=========================== */
+
+footer{
+
+background:#050505;
+text-align:center;
+padding:35px;
+margin-top:50px;
+border-top:3px solid var(--primary);
+
+}
+
+footer p{
+
+color:#aaa;
+
+}
+
+/* ===========================
+   RESPONSIVE
+=========================== */
+
+@media(max-width:768px){
+
+.hero h1{
+
+font-size:2.7rem;
+
+}
+
+header{
+
+flex-direction:column;
+gap:15px;
+
+}
+
+nav{
+
+flex-wrap:wrap;
+justify-content:center;
+
+}
+
+section{
+
+padding:70px 20px;
+
+}
+
+}
+
+</style>
+
 </head>
+
 <body>
 
-    <a href="https://wa.me." class="whatsapp-float" target="_blank" title="Chat on WhatsApp">
-        <svg class="whatsapp-icon" viewBox="0 0 24 24">
-    
+<header>
+
+<div class="logo">
+CAR <span>CARE</span> CENTER
+</div>
+
+<nav>
+
+<a href="#home">Home</a>
+<a href="#services">Services</a>
+<a href="#pricing">Pricing</a>
+<a href="#gallery">Gallery</a>
+<a href="#booking">Booking</a>
+<a href="#contact">Contact</a>
+
+</nav>
+
+</header>
+
+<section class="hero" id="home">
+
+<div class="hero-content">
+
+<h1>Professional <span>Auto Repair</span> & Vehicle Servicing</h1>
+
+<p>
+
+Keeping your vehicle safe, reliable and roadworthy with expert mechanics,
+quality parts and affordable prices.
+
+</p>
+
+<a href="#booking" class="btn">
+
+Book Service
+
+</a>
+
+</div>
+
+</section>
+
+<section id="services">
+
+<h2 class="section-title">
+
+Our <span>Services</span>
+
+</h2>
+
+<div class="services">
+
+<div class="service">
+
+<i class="fa-solid fa-oil-can"></i>
+
+<h3>Oil Service</h3>
+
+<p>
+Engine oil and filter replacement using quality lubricants.
+</p>
+
+</div>
+
+<div class="service">
+
+<i class="fa-solid fa-gears"></i>
+
+<h3>Engine Repairs</h3>
+
+<p>
+Complete engine diagnostics, repairs and rebuilds.
+</p>
+
+</div>
+
+<div class="service">
+
+<i class="fa-solid fa-car"></i>
+
+<h3>Vehicle Diagnostics</h3>
+
+<p>
+Computer diagnostics for all vehicle makes and models.
+</p>
+
+</div><div class="service">
+    <i class="fa-solid fa-screwdriver-wrench"></i>
+    <h3>Brake Repairs</h3>
+    <p>
+        Brake pad replacement, disc skimming, brake fluid changes and complete brake system repairs.
+    </p>
+</div>
+
+<div class="service">
+    <i class="fa-solid fa-car-side"></i>
+    <h3>Suspension & Steering</h3>
+    <p>
+        Shock absorbers, ball joints, wheel bearings, steering racks and suspension repairs.
+    </p>
+</div>
+
+<div class="service">
+    <i class="fa-solid fa-car-battery"></i>
+    <h3>Battery & Electrical</h3>
+    <p>
+        Battery testing, alternator repairs, starter motors, wiring faults and charging systems.
+    </p>
+</div>
+
+<div class="service">
+    <i class="fa-solid fa-snowflake"></i>
+    <h3>Air Conditioning</h3>
+    <p>
+        Vehicle air conditioning servicing, gas refilling, leak detection and repairs.
+    </p>
+</div>
+
+<div class="service">
+    <i class="fa-solid fa-gauge-high"></i>
+    <h3>Performance Tuning</h3>
+    <p>
+        Engine tuning, diagnostics and performance upgrades for better efficiency and power.
+    </p>
+</div>
+
+<div class="service">
+    <i class="fa-solid fa-truck-pickup"></i>
+    <h3>Roadside Assistance</h3>
+    <p>
+        Emergency breakdown assistance, jump starts and vehicle recovery services.
+    </p>
+</div>
+
+</div>
+</section>
+
+<!-- PRICING -->
+
+<section class="pricing" id="pricing">
+
+<h2 class="section-title">
+Service <span>Pricing</span>
+</h2>
+
+<table class="price-table">
+
+<thead>
+
+<tr>
+<th>Service</th>
+<th>Starting Price</th>
+</tr>
+
+</thead>
+
+<tbody>
+
+<tr>
+<td>Vehicle Diagnostic Scan</td>
+<td>$20</td>
+</tr>
+
+<tr>
+<td>Oil & Filter Service</td>
+<td>$35</td>
+</tr>
+
+<tr>
+<td>Brake Pad Replacement</td>
+<td>$45</td>
+</tr>
+
+<tr>
+<td>Suspension Inspection</td>
+<td>$30</td>
+</tr>
+
+<tr>
+<td>Battery Testing</td>
+<td>FREE</td>
+</tr>
+
+<tr>
+<td>Air Conditioning Service</td>
+<td>$40</td>
+</tr>
+
+<tr>
+<td>Engine Service</td>
+<td>From $80</td>
+</tr>
+
+<tr>
+<td>Gearbox Repairs</td>
+<td>Quotation</td>
+</tr>
+
+<tr>
+<td>Clutch Replacement</td>
+<td>Quotation</td>
+</tr>
+
+</tbody>
+
+</table>
+
+</section>
+
+<!-- GALLERY -->
+
+<section id="gallery">
+
+<h2 class="section-title">
+Workshop <span>Gallery</span>
+</h2>
+
+<div class="gallery">
+
+<img src="https://images.unsplash.com/photo-1486262715619-67b85e0b08d6?auto=format&fit=crop&w=800&q=80" alt="Mechanic repairing engine">
+
+<img src="https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=800&q=80" alt="Vehicle servicing">
+
+<img src="https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?auto=format&fit=crop&w=800&q=80" alt="Car inspection">
+
+<img src="https://images.unsplash.com/photo-1511919884226-fd3cad34687c?auto=format&fit=crop&w=800&q=80" alt="Brake repair">
+
+<img src="https://images.unsplash.com/photo-154939<!-- ===========================
+     TESTIMONIALS
+=========================== -->
+
+<section id="testimonials">
+
+    <h2 class="section-title">
+        Customer <span>Reviews</span>
+    </h2>
+
+    <div class="testimonials">
+
+        <div class="testimonial">
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+
+            <p>
+                Excellent service! My vehicle was repaired quickly and professionally.
+                I highly recommend Car Care Center.
+            </p>
+
+            <h4>— John M.</h4>
+
+        </div>
+
+        <div class="testimonial">
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+
+            <p>
+                Friendly staff, fair prices and quality workmanship.
+                My car now runs perfectly.
+            </p>
+
+            <h4>— Sarah T.</h4>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- ===========================
+     BOOKING
+=========================== -->
+
+<section class="booking" id="booking">
+
+    <h2 class="section-title">
+        Book a <span>Service</span>
+    </h2>
+
+    <form>
+
+        <input type="text" placeholder="Full Name" required>
+
+        <input type="tel" placeholder="Phone Number" required>
+
+        <input type="text" placeholder="Vehicle Make">
+
+        <input type="text" placeholder="Vehicle Model">
+
+        <input type="text" placeholder="Registration Number">
+
+        <select required>
+            <option>Select Service</option>
+            <option>Oil Service</option>
+            <option>Engine Repair</option>
+            <option>Brake Repair</option>
+            <option>Diagnostics</option>
+            <option>Suspension</option>
+            <option>Air Conditioning</option>
+            <option>Other</option>
+        </select>
+
+        <textarea placeholder="Tell us about your vehicle or problem"></textarea>
+
+        <button type="submit">
+            Book Appointment
+        </button>
+
+    </form>
+
+</section>
+
+<!-- ===========================
+     CONTACT
+=========================== -->
+
+<section id="contact">
+
+<h2 class="section-title">
+Contact <span>Us</span>
+</h2>
+
+<div class="contact">
+
+<div class="contact-box">
+
+<h3>Car Care Center</h3>
+
+<p><i class="fa-solid fa-location-dot"></i> Chegutu, Zimbabwe</p>
+
+<p><i class="fa-solid fa-phone"></i> +263774508005</p>
+
+<p><i class="fa-brands fa-whatsapp"></i> +263774508005</p>
+
+<p><i class="fa-solid fa-envelope"></i> info@carcarecenter.co.zw</p>
+
+<p><i class="fa-solid fa-clock"></i> Mon – Fri: 8:00 AM – 5:30 PM</p>
+
+<p><i class="fa-solid fa-clock"></i> Saturday: 8:00 AM – 1:00 PM</p>
+
+</div>
+
+<div class="contact-box">
+
+<iframe
+src="https://www.google.com/maps?q=Chegutu,Zimbabwe&output=embed"
+loading="lazy">
+</iframe>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- WhatsApp -->
+
+<a
+href="https://wa.me/263774508005"
+class="whatsapp"
+target="_blank"
+title="Chat on WhatsApp">
+
+<i class="fa-brands fa-whatsapp"></i>
+
+</a>
+
+<!-- FOOTER -->
+
+<footer>
+
+<h3>Car Care Center</h3>
+
+<p>
+
+Professional Vehicle Repairs • Diagnostics • Servicing
+
+</p>
+
+<br>
+
+<p>
+
+© 2026 Car Care Center. All Rights Reserved.
+
+</p>
+
+</footer>
+
+<script>
+
+// Smooth animation when page loads
+
+document.querySelectorAll(".service").forEach((card)=>{
+
+card.addEventListener("mouseenter",()=>{
+
+card.style.transform="translateY(-10px)";
+
+});
+
+card.addEventListener("mouseleave",()=>{
+
+card.style.transform="translateY(0px)";
+
+});
+
+});
+
+// Booking Form
+
+document.querySelector("form").addEventListener("submit",function(e){
+
+e.preventDefault();
+
+alert("Thank you for booking with Car Care Center! We will contact you shortly.");
+
+this.reset();
+
+});
+
+</script>
+
+</body>
+
+    </html>
