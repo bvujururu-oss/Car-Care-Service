@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trackside Performance & Automotive Repair</title>
+    <style>
+        :root {
+            --dark-bg: #0b0c10;
+            --card-bg: #1f2833;
+            --racing-red: #dc2626;
+            --neon-green: #22c55e;
+            --pure-white: #ffffff;
+            --text-muted: #9ca3af;
+        }
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Impact', 'Arial Black', sans-serif;
+        }
+        body {
+            background-color: var(--dark-bg);
+            color: var(--pure-white);
+            line-height: 1.6;
+            font-family: 'Segoe UI', Roboto, sans-serif;
+        }
+        header {
+            background-color: #000000;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 4px solid var(--racing-red);
+        }
+        .logo h1 {
+            font-size: 1.8rem;
+            letter-spacing: 1px;
+            color: var(--pure-white);
+            font-style: italic;
+        }
+        .logo span {
+            color: var(--neon-green);
+        }
+        nav a {
+            color: var(--pure-white);
+            text-decoration: none;
+            margin-left: 1.5rem;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        nav a:hover {
+            color: var(--racing-red);
+        }
+        .hero {
+            background: linear-gradient(rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.85)), url('https://unsplash.com') no-repeat center center/cover;
+            padding: 8rem 2rem;
+            text-align: center;
+            border-bottom: 4px solid var(--neon-green);
+        }
+        .hero h2 {
+            font-family: 'Impact', sans-serif;
+            font-size: 3.5rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: var(--pure-white);
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.8);
+        }
+        .hero h2 span {
+            color: var(--racing-red);
+        }
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+            color: var(--text-muted);
+        }
+        .btn {
+            background-color: var(--neon-green);
+            color: #000;
+            padding: 0.85rem 2rem;
+            text-decoration: none;
+            font-weight: 900;
+            border-radius: 4px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            display: inline-block;
+            transition: 0.3s;
+        }
+        .btn:hover {
+            background-color: var(--racing-red);
+            color: var(--pure-white);
+        }
+        .container {
+            max-width: 1200px;
+            margin: auto;
+            padding: 4rem 2rem;
+        }
+        .section-title {
+            text-align: center;
+            font-family: 'Impact', sans-serif;
+            font-size: 2.5rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 3rem;
+            color: var(--pure-white);
+        }
+        .section-title span {
+            color: var(--racing-red);
+        }
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+        .card {
+            background: var(--card-bg);
+            border-radius: 6px;
+            overflow: hidden;
+            box-shadow: 0 8px 16px rgba(0,0,0,0.5);
+            border-bottom: 4px solid var(--racing-red);
+            transition: transform 0.3s;
+        }
+        .card:hover {
+            transform: translateY(-5px);
+            border-bottom-color: var(--neon-green);
+        }
+        .card-img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+        .card-content {
+            padding: 1.5rem;
+        }
+        .card h3 {
+            font-family: 'Impact', sans-serif;
+            font-size: 1.4rem;
+            letter-spacing: 1px;
+            margin-bottom: 0.5rem;
+            color: var(--neon-green);
+            text-transform: uppercase;
+        }
+        .card p {
+            color: #cbd5e1;
+            font-size: 0.95rem;
+        }
+        .info-section {
+            background-color: #000000;
+            padding: 4rem 2rem;
+            border-top: 4px solid var(--racing-red);
+        }
+        .info-grid {
+            max-width: 1200px;
+            margin: auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 3rem;
+        }
+        .info-box h3 {
+            font-family: 'Impact', sans-serif;
+            font-size: 1.8rem;
+            letter-spacing: 1px;
+            color: var(--racing-red);
+            margin-bottom: 1.5rem;
+            text-transform: uppercase;
+        }
+        .info-box p, .info-box li {
+            font-size: 1.1rem;
+            margin-bottom: 0.75rem;
+            color: #e5e7eb;
+        }
+        .info-box span {
+            color: var(--neon-green);
+            font-weight: bold;
+        }
+        .info-box ul {
+            list-style: none;
+        }
+        footer {
+            background-color: #050505;
+            color: var(--text-muted);
+            text-align: center;
+            padding: 2rem;
+            font-size: 0.9rem;
+            border-top: 1px solid #1f2937;
+        }
+        @media (max-width: 768px) {
+            header {
+                flex-direction: column;
+                gap: 1rem;
+            }
+            nav a {
+                margin: 0 0.5rem;
+            }
+            .hero h2 {
+                font-size: 2.3rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="logo">
+            <h1>RPM<span>PERFORMANCE</span></h1>
+        </div>
+        <nav>
+            <a href="#services">Services</a>
+            <a href="#pitlane">Pit Lane</a>
+            <a href="#contact">Contact</a>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <h2>Track-Tested <span>Precision Repair</span></h2>
+        <p>Bringing elite motorsport diagnostic expertise and heavy-duty mechanical solutions from the race track straight to your everyday vehicle.</p>
+        <a href="#contact" class="btn">Schedule Service Pitstop</a>
+    </section>
+
+    <div class="container" id="services">
+        <h2 class="section-title">Pro <span>Services & Hardware</span></h2>
+        <div class="grid">
+            <div class="card">
+                <!-- Racing car image -->
+                <img class="card-img" src="https://unsplash.com" alt="Racing Car Tuning">
+                <div class="card-content">
+                    <h3>Track Diagnostics & Tuning</h3>
+                    <p>High-tier ECU remapping, performance mapping, and specialized live data sensor analysis.</p>
+                </div>
+            </div>
+            <div class="card">
+                <!-- Mechanical Tools image -->
+                <img class="card-img" src="https://unsplash.com" alt="Mechanic Tools">
+                <div class="card-content">
+                    <h3>Precision Tooling & Repair</h3>
+                    <p>Calibrated metric wrench assembly, engine teardowns, component replacement, and track preparation.</p>
+                </div>
+            </div>
+            <div class="card">
+                <!-- Sports brake/suspension elements -->
+                <img class="card-img" src="https://unsplash.com" alt="Racing Suspension Setup">
+                <div class="card-content">
+                    <h3>Suspension & Braking</h3>
+                    <p>Motorsport grade coilovers, multi-piston high-heat brake calipers, and precision tracking alignment.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <section class="info-section" id="contact">
+        <div class="info-grid">
+            <div class="info-box">
+                <h3>The Pit Crew Headquarters</h3>
+                <p>📍 <span>Location:</span> 777 Speedway Blvd, Grid Circuit</p>
+                <p>📞 <span>Hotline:</span> (555) 909-FAST</p>
+                <p>✉️ <span>Support:</span> pitcrew@://example.com</p>
+            </div>
+            <div class="info-box" id="pitlane">
+                <h3>Pit Lane Availability</h3>
+                <ul>
+                    <li>Monday - Friday: <span>7:00 AM - 7:00 PM</span></li>
+                    <li>Saturday: <span>8:00 AM - 4:00 PM</span></li>
+                    <li>Sunday / Race Day: <span>Emergency Track Support Only</span></li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2026 RPM Performance Workshop. Built for Cloudflare Pages.</p>
+    </footer>
+
+</body>
+  </html>
+  
