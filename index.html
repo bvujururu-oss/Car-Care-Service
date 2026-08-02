@@ -12,6 +12,7 @@
             --neon-green: #22c55e;
             --pure-white: #ffffff;
             --text-muted: #9ca3af;
+            --whatsapp-green: #25D366;
         }
         * {
             box-sizing: border-box;
@@ -90,6 +91,8 @@
             letter-spacing: 1px;
             display: inline-block;
             transition: 0.3s;
+            border: none;
+            cursor: pointer;
         }
         .btn:hover {
             background-color: var(--racing-red);
@@ -149,10 +152,54 @@
             color: #cbd5e1;
             font-size: 0.95rem;
         }
+        
+        /* Pricing Table Styles */
+        .pricing-section {
+            background-color: #111827;
+            padding: 4rem 2rem;
+            border-top: 4px solid var(--neon-green);
+            border-bottom: 4px solid var(--racing-red);
+        }
+        .table-container {
+            max-width: 900px;
+            margin: auto;
+            overflow-x: auto;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            background: var(--card-bg);
+            border-radius: 6px;
+            overflow: hidden;
+        }
+        th, td {
+            padding: 1rem 1.5rem;
+            text-align: left;
+        }
+        th {
+            background-color: #000000;
+            color: var(--neon-green);
+            font-family: 'Impact', sans-serif;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-size: 1.2rem;
+        }
+        tr {
+            border-bottom: 1px solid #374151;
+        }
+        tr:last-child {
+            border-bottom: none;
+        }
+        td.price {
+            color: var(--racing-red);
+            font-weight: bold;
+            font-family: 'Impact', sans-serif;
+            font-size: 1.2rem;
+        }
+
         .info-section {
             background-color: #000000;
             padding: 4rem 2rem;
-            border-top: 4px solid var(--racing-red);
         }
         .info-grid {
             max-width: 1200px;
@@ -188,6 +235,69 @@
         .contact-link:hover {
             color: var(--neon-green);
         }
+        
+        /* Contact Form Styles */
+        .booking-form {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            background: var(--card-bg);
+            padding: 2rem;
+            border-radius: 6px;
+            border: 1px solid #374151;
+        }
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+        .form-group label {
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            color: var(--text-muted);
+            font-weight: bold;
+        }
+        .form-group input, .form-group textarea {
+            padding: 0.75rem;
+            background: #0b0c10;
+            border: 1px solid #4b5563;
+            color: white;
+            border-radius: 4px;
+            font-size: 1rem;
+        }
+        .form-group input:focus, .form-group textarea:focus {
+            outline: none;
+            border-color: var(--neon-green);
+        }
+
+        /* Floating WhatsApp Button */
+        .whatsapp-float {
+            position: fixed;
+            width: 60px;
+            height: 60px;
+            bottom: 40px;
+            right: 40px;
+            background-color: var(--whatsapp-green);
+            color: #FFF;
+            border-radius: 50px;
+            text-align: center;
+            box-shadow: 2px 2px 10px rgba(0,0,0,0.5);
+            z-index: 100;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            transition: transform 0.3s;
+        }
+        .whatsapp-float:hover {
+            transform: scale(1.1);
+        }
+        .whatsapp-icon {
+            width: 32px;
+            height: 32px;
+            fill: white;
+        }
+
         footer {
             background-color: #050505;
             color: var(--text-muted);
@@ -207,78 +317,18 @@
             .hero h2 {
                 font-size: 2.3rem;
             }
+            .whatsapp-float {
+                bottom: 20px;
+                right: 20px;
+                width: 50px;
+                height: 50px;
+            }
         }
     </style>
 </head>
 <body>
 
-    <header>
-        <div class="logo">
-            <h1>RPM<span>PERFORMANCE</span></h1>
-        </div>
-        <nav>
-            <a href="#services">Services</a>
-            <a href="#pitlane">Pit Lane</a>
-            <a href="#contact">Contact</a>
-        </nav>
-    </header>
-
-    <section class="hero">
-        <h2>Track-Tested <span>Precision Repair</span></h2>
-        <p>Bringing elite motorsport diagnostic expertise and heavy-duty mechanical solutions straight to your vehicle in Chegutu.</p>
-        <a href="#contact" class="btn">Schedule Service Pitstop</a>
-    </section>
-
-    <div class="container" id="services">
-        <h2 class="section-title">Pro <span>Services & Hardware</span></h2>
-        <div class="grid">
-            <div class="card">
-                <img class="card-img" src="https://unsplash.com" alt="Racing Car Tuning">
-                <div class="card-content">
-                    <h3>Track Diagnostics & Tuning</h3>
-                    <p>High-tier ECU remapping, performance mapping, and specialized live data sensor analysis.</p>
-                </div>
-            </div>
-            <div class="card">
-                <img class="card-img" src="https://unsplash.com" alt="Mechanic Tools">
-                <div class="card-content">
-                    <h3>Precision Tooling & Repair</h3>
-                    <p>Calibrated metric wrench assembly, engine teardowns, component replacement, and track preparation.</p>
-                </div>
-            </div>
-            <div class="card">
-                <img class="card-img" src="https://unsplash.com" alt="Racing Suspension Setup">
-                <div class="card-content">
-                    <h3>Suspension & Braking</h3>
-                    <p>Motorsport grade coilovers, multi-piston high-heat brake calipers, and precision tracking alignment.</p>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <section class="info-section" id="contact">
-        <div class="info-grid">
-            <div class="info-box">
-                <h3>The Pit Crew Headquarters</h3>
-                <p>📍 <span>Address:</span> Kaguvi, Chegutu, Zimbabwe</p>
-                <p>📞 <span>Hotline:</span> <a href="tel:+263774508005" class="contact-link">+263 77 450 8005</a></p>
-                <p>✉️ <span>Email:</span> <a href="mailto:bvujururu@gmail.com" class="contact-link">bvujururu@gmail.com</a></p>
-            </div>
-            <div class="info-box" id="pitlane">
-                <h3>Pit Lane Availability</h3>
-                <ul>
-                    <li>Monday - Friday: <span>7:00 AM - 7:00 PM</span></li>
-                    <li>Saturday: <span>8:00 AM - 4:00 PM</span></li>
-                    <li>Sunday / Race Day: <span>Closed</span></li>
-                </ul>
-            </div>
-        </div>
-    </section>
-
-    <footer>
-        <p>&copy; 2026 RPM Performance Workshop. Built for Cloudflare Pages.</p>
-    </footer>
-
-</body>
-            </html>
+    <!-- Floating WhatsApp Button -->
+    <a href="https://wa.me." class="whatsapp-float" target="_blank" title="Chat on WhatsApp">
+        <svg class="whatsapp-icon" viewBox="0 0 24 24">
     
